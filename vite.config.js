@@ -13,12 +13,12 @@ export default defineConfig({
   server:{
     proxy:{
       '/auth': {
-        target: 'https://capstone-ii-group26.onrender.com',
+        target: 'http://localhost:3000',
         changeOrigin: true,
         secure: false,
     },
     '/api': {
-      target: 'https://capstone-ii-group26.onrender.com',
+      target: 'http://localhost:3000',
       changeOrigin: true,
       secure: false,
       rewrite: (path) => path.replace(/^\/api/, '') // remove the /api prefix before forwarding

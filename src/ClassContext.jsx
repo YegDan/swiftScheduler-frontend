@@ -20,6 +20,7 @@
       pastClasses: [],
       upcomingClasses: []
      });
+     const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 
      const hasClassPassed = (startDate) => {
@@ -74,7 +75,7 @@
           console.log("token in class context", decoded)
           const userId = decoded.userId; 
 
-          const response = await axios.get(`/api/classes/user-history/${userId}`, {
+          const response = await axios.get(`${apiBaseUrl}/classes/user-history/${userId}`, {
               headers: { Authorization: `Bearer ${auth.token}` },
           });
 
@@ -108,7 +109,7 @@
          if (!auth.token) return;
          setLoading(true);
          try{
-           const response = await axios.get('/api/classrooms', {
+           const response = await axios.get(`${apiBaseUrl}/classrooms`, {
              headers: { Authorization: `Bearer ${auth.token}` }
            });
            const classroomsById = response.data.reduce((acc, classroom) => {
@@ -128,7 +129,7 @@
         if (!auth.token) return;
        setLoading(true);
        try {
-         const response = await axios.get('/auth/teachers', {
+         const response = await axios.get(`${apiBaseUrl}/auth/teachers`, {
            headers: { Authorization: `Bearer ${auth.token}` }
           });
          const teachersById = response.data.reduce((acc, teacher) => {
@@ -153,7 +154,7 @@
          setLoading(true);
          setError(null);
          try {
-           const response = await axios.get('/api/classes', {
+           const response = await axios.get(`${apiBaseUrl}/classes`, {
              headers: { Authorization: `Bearer ${auth.token}` }
            });
            const classesWithDetails = response.data.map(cls => {

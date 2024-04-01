@@ -9,6 +9,7 @@ export default function Login() {
     isStudent: true,
   });
   const { setUserAuthInfo } = useAuth();
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -19,7 +20,7 @@ export default function Login() {
   };
   const onLogin = async (e) => {
     e.preventDefault();
-    const loginUrl = form.isStudent ? '/auth/login/student' : '/auth/login/teacher';
+    const loginUrl = form.isStudent ? `${apiBaseUrl}/auth/login/student` : `${apiBaseUrl}/auth/login/teacher`;
     try {
       if (form.username === '' || form.password === '') {
         alert('Please fill in all fields');
