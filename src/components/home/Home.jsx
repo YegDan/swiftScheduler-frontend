@@ -97,7 +97,6 @@ function Home() {
                                 <p className="text-gray-400 lg:text-base md:text-base sm:text-base text-sm">Category: {result.danceCategory}</p>
                                 <p className="text-gray-400 lg:text-base md:text-base sm:text-base text-sm">Difficulty: {result.studentLevel}</p>
                                 <p className="text-gray-400 lg:text-base md:text-base sm:text-base text-sm">Capacity: {result.capacity}</p>
-                                <p className="text-gray-400 lg:text-base md:text-base sm:text-base text-sm">Room: {JSON.stringify(result.classroom)}</p>
                                 </Link>
                             </li>
                      ))}
