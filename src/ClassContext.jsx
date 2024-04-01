@@ -193,6 +193,17 @@
            fetchClasses();
          }
        }, [teachers, auth.token, fetchClasses]);
+
+       const submitRating = async (classId, rating) => {
+        try {
+            await axios.post(`${apiBaseUrl}/classes/rate/${classId}`, { rating }, {
+                headers: { Authorization: `Bearer ${auth.token}` }
+            });
+            console.log(`Rating ${rating} submitted for class ${classId}`);
+        } catch (error) {
+            console.error('Error submitting rating:', error);
+        }
+    };
        
  
    return (
@@ -205,10 +216,11 @@
          hasClassPassed,
          fetchClassrooms,
          fetchTeachers,
-          convertDateFormat,
-          extractTime,
-          fetchUserClassHistory,
-          userClassHistory
+         convertDateFormat,
+         extractTime,
+         fetchUserClassHistory,
+         userClassHistory,
+         submitRating
         
        
  
