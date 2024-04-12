@@ -4,7 +4,7 @@ import { useAuth } from '../AuthContext';
 
 export default function Register() {
   const { setUserAuthInfo } = useAuth();
-  const apiBaseUrl = 'https://capstone-ii-group26-1.onrender.com';
+  const apiBaseUrl = 'https://capstone-ii-group26-2.onrender.com';
 
   // Initial form state
   const getInitialFormState = () => ({
