@@ -9,6 +9,7 @@ export default function Profile() {
     const { userClassHistory, loading, error, fetchUserClassHistory, convertDateFormat, extractTime} = useClassContext();
     const [displayClasses, setDisplayClasses] = useState(null);
     const [expandedClassId, setExpandedClassId] = useState(null); 
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
     useEffect(() => {
         fetchUserClassHistory();
@@ -58,7 +59,7 @@ export default function Profile() {
 
     const handleDeleteClass = async (classId) => {
         try {
-            const response = await fetch(`/api/classes/${classId}`, {
+            const response = await fetch(`${apiBaseUrl}/classes/${classId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${auth.token}`,
